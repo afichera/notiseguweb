@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.blockUI.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+	cargar_provincias();
+	$("#provincia").change(function(){dependencia_departamento();});
+	$("#departamento").change(function(){dependencia_localidad();});
+	$("#departamento").attr("disabled",true);
+	$("#localidad").attr("disabled",true);
+	
+});
+
+function cargar_provincias()
+{
+	$.get("scripts/cargar-provincias.php", function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$('#provincia').append(resultado);			
+		}
+	});
+	
+}
+function dependencia_departamento()
+{
+	var id = $("#provincia").val();
+	$.get("scripts/dependencia-departamento.php", { id: id },
+		function(resultado)
+		{
+			if(resultado == false)
+			{
+				alert("Error");
+			}
+			else
+			{
+				$("#departamento").attr("disabled",false);
+				document.getElementById("departamento").options.length=1;
+				$('#departamento').append(resultado);			
+			}
+		}	
+	);
+	
+}
+
+function dependencia_localidad()
+{
+	var id = $("#departamento").val();
+	$.get("scripts/dependencia-localidades.php?", { id: id }, function(resultado){
+		if(resultado == false)
+		{
+			alert("Error");
+		}
+		else
+		{
+			$("#localidad").attr("disabled",false);
+			document.getElementById("localidad").options.length=1;
+			$('#localidad').append(resultado);			
+		}
+	});	
+}
+
+</script>
+<style type="text/css">
+dt{font-size:200%;}
+dd{font-size:150%;}
+</style>
+<title>Combobox dependientes de Provincias, Departamentos y Ciudades con PHP, MySQL, jQuery y un poco de AJAX</title>
+</head>
+
+<body>
+<h1>Combobox dependientes de Provincias, Departamentos y Ciudades con PHP, MySQL, jQuery y un poco de AJAX</h1>
+<dl>
+<dt>Ubicaci&oacute;n:</dt>
+	<dd>Provincia:</dd>
+    <dd>
+        <select id="provincia" name="provincia">
+            <option value="0">Selecciona Una...</option>
+        </select>
+    </dd>
+
+	<dd>Departamento:</dd>
+    <dd>
+        <select id="departamento" name="departamento">
+            <option value="0">Selecciona Uno...</option>
+        </select>
+        
+    </dd>
+
+	<dd>Localidad:</dd>
+    <dd>
+        <select id="localidad" name="localidad">
+            <option value="0">Selecciona Uno...</option>
+        </select>
+        
+    </dd>
+</dl>
+</body>
+</html>
