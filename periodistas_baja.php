@@ -34,7 +34,7 @@ include ("conexion_bdd.php");
 
 include ("consulta_bdd.php");
 
-$conexion=conectarbd("localhost","root","","seguweb");
+$conexion=conectarbd("localhost","root","","notiseguweb");
 
 
 
@@ -68,7 +68,7 @@ if ($consulta1==1&&$consulta2==1&&$consulta3==1&&$consulta4==1&&$consulta5==1){
 	echo "La operacion se realiz&oacute; con &eacute;xito <br/>
 	<a href='periodistas.php' class='boton'>Aceptar</a>";
 	
-			include ("scripts/carga_log.php");carga_log ("Se dio de baja l&oacute;gica el cliente con id ".$id.".",$sesion->get("usuario"), 1);
+			
 	
 	}
 	else {

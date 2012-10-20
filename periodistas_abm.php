@@ -3,6 +3,8 @@
 <head>
 <?php include("head.php");?>
 <link href="table.css" rel="stylesheet" type="text/css">
+<script src="js/funciones.js" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -19,102 +21,48 @@
 <?php
 $abm=$_POST['abm'];
 
-
-
-
 include ("conexion_bdd.php");
 
 include ("consulta_bdd.php");
 
-$conexion=conectarbd("localhost","root","","seguweb");
+$conexion=conectarbd("localhost","root","","notiseguweb");
 
 
-$id=$_POST['id'];
 $nombre=$_POST['nombre'];	
-$apellido=$_POST['apellido'];	
-$razon_social=$_POST['razon_social'];	
-$tipo_doc=$_POST['tipo_doc'];	
-$nro_doc=$_POST['nro_doc'];	
-$palabra_clave=$_POST['palabra_clave'];	
-$calle=$_POST['calle'];	
-$numero=$_POST['numero'];	
-$provincia=$_POST['provincia'];	
-$departamento=$_POST['departamento'];	
-$localidad=$_POST['localidad'];	
-$cod_post=$_POST['cod_post'];	
-$email=$_POST['email'];	
-$telefono_1=$_POST['telefono_1'];	
-$telefono_2=$_POST['telefono_2'];	
-$telefono_3=$_POST['telefono_3'];
-
-	
-
-
-if ($abm=='Agregar'){
 $usuario=$_POST['usuario'];
 $password=$_POST['password'];
-$rol_id=5;
-$query="INSERT INTO cliente (
-tipo_doc_id ,
-nro_doc ,
-nombre ,
-apellido,
-razon_social,
-palabra_clave
+
+$query="select nombre_usu from usuario where nombre_usu = '$usuario'";
+$consulta0=consulta($query, $conexion);
+if(mysql_num_rows($consulta0)==0)
+{
+$query="INSERT INTO usuario (
+nombre_apellido, 
+nombre_usu, 
+pass,
+rol_id
 )
 VALUES (
-$tipo_doc, $nro_doc, '$nombre', '$apellido', '$razon_social', '$palabra_clave'
+'$nombre', '$usuario', '$password', 1
 );";
 $consulta1=consulta($query, $conexion);
-$cliente_id = mysql_insert_id();
-
-$query="INSERT INTO domicilio (
-nro, 
-calle, 
-localidad_id, 
-cod_postal, 
-cliente_id
-) 
-VALUES (
-$numero, '$calle', $localidad, $cod_post, $cliente_id);";
-
-$consulta2=consulta($query, $conexion);
-
-$query="INSERT INTO contacto (
-tel_principal, 
-tel_alter, 
-fax, 
-email, 
-cliente_id
-) 
-VALUES (
-'$telefono_1','$telefono_2', '$telefono_3', '$email', $cliente_id);";
-$consulta3=consulta($query, $conexion);
-
-$query="INSERT INTO usuario (
-usuario, 
-password, 
-nombre, 
-apellido, 
-cliente_id, 
-rol_id 
-) 
-VALUES (
-'$usuario', '$password', '$nombre', '$apellido', $cliente_id, $rol_id);";
-$consulta4=consulta($query, $conexion);
-
-if ($consulta1==1&&$consulta2==1&&$consulta3==1&&$consulta4==1){
+if ($consulta1==1){
 	echo "La operacion se realiz&oacute; con &eacute;xito <br/>
 	<a href='periodistas.php' class='boton'>Aceptar</a>";
-	include ("scripts/carga_log.php");carga_log ("Se dio de alta un nuevo cliente, datos:
-	".$id.",".$nombre.",".$apellido.",".$razon_social.",".$tipo_doc.",".$nro_doc.",".$palabra_clave.",".$calle.",".$numero.",".$provincia.",".$departamento.",".$localidad.",".$cod_post.",".$email.",".$telefono_1.",".$telefono_2.",".$telefono_3.",".$usuario.",".$rol_id.".",$sesion->get("usuario"), 1);
+	
 	}
 	else {
 		echo "No se pudo realizar la operaci&oacute;n. Contacte al administrador <br/>
 		<input type='button' value='Back' onclick='goBack()' class='boton' />";
 	}
 
-};
+}
+
+else {
+			echo "Ya existe ese nombre de usuario en la base. Elija otro. <br/>
+		<input type='button' value='Volver' onclick='goBack()' class='boton' />";
+	
+}
 
 
 

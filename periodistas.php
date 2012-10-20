@@ -23,7 +23,7 @@ require 'class.eyemysqladap.inc.php';
 require 'class.eyedatagrid.inc.php';
 
 // Load the database adapter
-$db = new EyeMySQLAdap('localhost', 'root', '', 'seguweb');
+$db = new EyeMySQLAdap('localhost', 'root', '', 'notiseguweb');
 
 // Load the datagrid class
 $x = new EyeDataGrid($db);
@@ -31,13 +31,10 @@ $x = new EyeDataGrid($db);
 $id_cliente = 2;
 
 // Set the query, select all rows from the people table
-$x->setQuery("*", "cliente","razon_social", "fecha_baja = '0000-00-00 00:00:00'");
+$x->setQuery("*", "usuario_rol", "" , "1");
 
 // Hide ID Column
 $x->hideColumn('id');
-$x->hideColumn('tipo_doc_id');
-$x->hideColumn('fecha_baja');
-
 // Show reset grid control
 
 // Add standard control
@@ -45,7 +42,7 @@ $x->hideColumn('fecha_baja');
 $x->addStandardControl(EyeDataGrid::STDCTRL_DELETE, "window.location = ('periodistas_baja.php?id=%id%&confirma=0')");
 
 // Add create control
-$x->showCreateButton("window.location = ('periodistas_alta.php')", EyeDataGrid::TYPE_ONCLICK, 'Agregar nuevo Cliente');
+$x->showCreateButton("window.location = ('periodistas_alta.php')", EyeDataGrid::TYPE_ONCLICK, 'Agregar nuevo Periodista');
 
 // Show checkboxes
 //$x->showCheckboxes();

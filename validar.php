@@ -12,24 +12,24 @@ if( isset($_POST["iniciar"]) )	{
    $password = $_POST["password"];
    if(validarUsuario($usuario,$password) == true){
       $sesion->set("usuario",$usuario);
-      $urlRol=tomarUrlRol($usuario);
-	  $rol=tomarRol($usuario);
+      $rol=tomarRol($usuario);
 	  $sesion->set("rol",$rol);
-	  include ("scripts/carga_log.php");carga_log ("Ingreso del usuario.",$sesion->get("usuario"), 1);
+	  
 	  header("location: noticias.php");
    } else {
-	   include ("scripts/carga_log.php");carga_log ("Intento de sesion fallido. Usuario intentado: ".$usuario.".","", 1); 
+
      header("location: login.php?error=password");
 	 }
 }
 
 function validarUsuario($usuario, $password)	{
-   $conexion = new mysqli("localhost","root","","seguweb");
-   $consulta = "select password from usuario where usuario = '".$usuario."' AND fecha_baja = '0000-00-00 00:00:00';";
-   $result = $conexion->query($consulta);
+   $conexion = new mysqli("localhost","root","","notiseguweb");
+   $consulta = "select pass from usuario where nombre_usu = '".$usuario."' AND fecha_hora_baja = '0000-00-00 00:00:00';";
+  
+  $result = $conexion->query($consulta);
    if($result->num_rows > 0)	{
       $fila = $result->fetch_assoc();
-      if( strcmp($password,$fila["password"]) == 0 )
+      if( strcmp($password,$fila["pass"]) == 0 )
          return true;
       else
          return false;
@@ -38,23 +38,9 @@ function validarUsuario($usuario, $password)	{
 }
 
 
-function tomarUrlRol($usuario){
-$conexion = new mysqli("localhost","root","","seguweb");
-   $consulta = "SELECT url_inicio FROM usuario INNER JOIN rol ON (usuario.rol_id=rol.id)   where usuario.usuario = '".$usuario."';";
-   $result = $conexion->query($consulta);
-   
-   if($result->num_rows > 0)	{
-      $fila = $result->fetch_assoc();
-      return $fila["url_inicio"];}
-      else
-         return false;
-  
-}
-
-
 function tomarRol($usuario){
-$conexion = new mysqli("localhost","root","","seguweb");
-   $consulta = "SELECT rol.descripcion FROM usuario INNER JOIN rol ON (usuario.rol_id=rol.id)   where usuario.usuario = '".$usuario."';";
+$conexion = new mysqli("localhost","root","","notiseguweb");
+   $consulta = "SELECT rol.descripcion FROM usuario INNER JOIN rol ON (usuario.rol_id=rol.id)   where nombre_usu = '".$usuario."';";
    $result = $conexion->query($consulta);
    
    if($result->num_rows > 0)	{
@@ -64,5 +50,4 @@ $conexion = new mysqli("localhost","root","","seguweb");
          return false;
   
 }
-
 ?>

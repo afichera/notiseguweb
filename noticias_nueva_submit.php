@@ -24,7 +24,7 @@
 
 		include ("consulta_bdd.php");
 
-		$conexion=conectarbd("localhost","root","","seguweb");
+		$conexion=conectarbd("localhost","root","","notiseguweb");
 
 
 
@@ -60,11 +60,11 @@ $tipo_dispositivo_id,2,'ACTIVO',$cliente_id,'$descripcion');";
 		if ($consulta1==1&&$consulta2==1){
 						echo "La operacion se realiz&oacute; con &eacute;xito <br/>
 					<a href='dispositivos.php' class='boton'>Aceptar</a>";
-						include ("scripts/carga_log.php");carga_log ("Se cre� el dispositivo. Datos: ".$tipo_dispositivo_id.",2,ACTIVO,".$cliente_id.",".$descripcion.".",$sesion->get("usuario"), 1);
+						
 					}else{
 						echo "No se pudo realizar la operaci&oacute;n. <br/>
 					<input type='button' value='Volver' onclick='goBack()' class='boton' />";
-						include ("scripts/carga_log.php");carga_log ("No se pudo crear el dispositivo",$sesion->get("usuario"), 1);
+						
 						
 					}
 
