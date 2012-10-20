@@ -3,4 +3,4 @@
 <link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
 <link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
 <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
-<script type="text/javascript" src="js/jquery.min.js"></script>
+

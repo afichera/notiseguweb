@@ -41,7 +41,7 @@ $x->hideColumn('fecha_baja');
 // Show reset grid control
 
 // Add standard control
-$x->addStandardControl(EyeDataGrid::STDCTRL_EDIT, "window.location = ('periodistas_modificacion.php?id=%id%')");
+
 $x->addStandardControl(EyeDataGrid::STDCTRL_DELETE, "window.location = ('periodistas_baja.php?id=%id%&confirma=0')");
 
 // Add create control
