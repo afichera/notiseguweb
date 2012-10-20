@@ -2,7 +2,7 @@
 <div class="grid_12" >
 <a href="noticias.php">Todas las noticias</a> | 
 
-<?php if($sesion->get("rol") == "periodista" || $sesion->get("rol") == "editor") echo '<a href="nueva.php">Nueva Noticia</a> | '; ?>
+<?php if($sesion->get("rol") == "periodista" || $sesion->get("rol") == "editor") echo '<a href="noticias_nueva.php">Nueva Noticia</a> | '; ?>
 
 <?php if($sesion->get("rol") == "editor") echo '<a href="periodistas.php">Administrar Periodistas</a> | '; ?>
 
