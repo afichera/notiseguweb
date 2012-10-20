@@ -19,6 +19,7 @@
 class EyeDataGrid
 {
 	private $results_per_page = 10;
+	
 	private $column_count = 0; // Num of columns
 	private $row_count = 0; // Number of rows
 	private $hide_header = false; // Header visibility
