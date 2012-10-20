@@ -8,6 +8,7 @@ else {$error="";}
 <?php include("head.php");?>
 </head>
 
+
 <body OnLoad="document.frmLogin.usuario.focus();">
 <!-- Encabezado-->
 <div class="container_12">
