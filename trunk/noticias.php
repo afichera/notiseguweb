@@ -63,7 +63,7 @@ $total_paginas = ceil($total_registros / $registros);
 
 while($articulo=mysql_fetch_array($resultados)) {
 
-echo "<b>".$articulo["titulo"]."</b><br>";
+echo '<h2><a href="vernoticia.php?id='.$articulo["id"].'">'.$articulo["titulo"].'</a></h2>';
 echo "<font color='#666666'>".$articulo["descripcion"]."</font><br><br><br>";
 
 } 
