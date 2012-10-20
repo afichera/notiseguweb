@@ -39,32 +39,12 @@ $conexion=conectarbd("localhost","root","","notiseguweb");
 
 
 $query="
-UPDATE cliente SET fecha_baja = NOW() WHERE cliente.id =".$id."
+UPDATE usuario SET fecha_hora_baja = NOW() WHERE usuario.id =".$id."
 ";
 
 $consulta1=consulta($query, $conexion);
 
-$query="UPDATE domicilio SET fecha_baja = NOW() 
-WHERE domicilio.cliente_id = ".$id;
-
-$consulta2=consulta($query, $conexion);
-
-$query="UPDATE contacto SET fecha_baja = NOW() 
-WHERE contacto.cliente_id = ".$id;
-
-$consulta3=consulta($query, $conexion);
-
-$query="UPDATE usuario SET fecha_baja = NOW() 
-WHERE usuario.cliente_id = ".$id;
-
-$consulta4=consulta($query, $conexion);
-
-$query="UPDATE dispositivo SET estado_habilitacion_id = 3, motivo_baja = 'Por baja del cliente'  
-WHERE dispositivo.cliente_id = ".$id;
-
-$consulta5=consulta($query, $conexion);
-
-if ($consulta1==1&&$consulta2==1&&$consulta3==1&&$consulta4==1&&$consulta5==1){
+if ($consulta1==1){
 	echo "La operacion se realiz&oacute; con &eacute;xito <br/>
 	<a href='periodistas.php' class='boton'>Aceptar</a>";
 	
