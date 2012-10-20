@@ -42,6 +42,7 @@ else {$error="";}
    
 </form>
 </div>
+</div>
 
 <?php include("pie.php");?>
 </body>
