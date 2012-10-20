@@ -28,7 +28,7 @@ include ("conexion_bdd.php");
 
 include ("consulta_bdd.php");
 
-$conexion=conectarbd("localhost","root","","seguweb");
+$conexion=conectarbd("localhost","root","","notiseguweb");
 
 $registros = 3; 
 
@@ -49,7 +49,7 @@ $inicio = ($pagina - 1) * $registros;
 
 
 
-$query="SELECT id FROM articulos WHERE visible = 1";
+$query="SELECT id FROM nota WHERE fecha_hora_baja = 0000-00-00 00:00:00";
 
 $resultados=consulta($query, $conexion);
 
@@ -61,7 +61,7 @@ if(mysql_num_rows($resultados)==0){
 else
 
 $total_registros = mysql_num_rows($resultados);
-$resultados = mysql_query("SELECT * FROM articulos WHERE visible = 1 ORDER BY fecha DESC LIMIT $inicio, $registros");
+$resultados = mysql_query("SELECT * FROM nota WHERE fecha_hora_baja = 0000-00-00 00:00:00 ORDER BY fecha_hora DESC LIMIT $inicio, $registros");
 $total_paginas = ceil($total_registros / $registros); 
 
 while($articulo=mysql_fetch_array($resultados)) {

@@ -29,7 +29,7 @@
 
 			//levanto el Id del dispositivo y cliente
 			$id=$_GET["id_cliente"];
-			$conexion=conectarbd("localhost","root","","seguweb");
+			$conexion=conectarbd("localhost","root","","notiseguweb");
 	//tipo de dispositivo
 
 			$query="select id, descripcion from tipo_dispositivo";
