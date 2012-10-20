@@ -19,11 +19,60 @@
 <!-- Principal-->
 <div class="container_12" id="principal">
   <div class="grid_12" >
-    <h1>AGREGAR DESDE LA BASE DE DATOS</h1>
-  </div>
-  <div class="grid_12" >
+  	
+  	    <?php
 
+include ("conexion_bdd.php");
+
+include ("consulta_bdd.php");
+
+$id=$_GET["id"];
+
+$conexion=conectarbd("localhost","root","","notiseguweb");
+$query="SELECT * FROM nota n INNER JOIN usuario u ON n.usuario_id = u.id WHERE n.id =".$id;
+
+$consulta=consulta($query, $conexion);
+if(mysql_num_rows($consulta)==0){
+	
+	print("<br>Error, no existe esa noticia");
+}
+else
+  	
+	for ($i=0; $i<mysql_num_rows($consulta); $i++)
+{
+$fila = mysql_fetch_array($consulta);
+$titulo=$fila["titulo"];
+$fecha=$fila["fecha_hora"];
+$texto=$fila["texto"];
+$autor=$fila["nombre_apellido"];
+echo "<h1>".$titulo."</h1>";
+
+}
+	
+ ?> 	
+    </div>
+  <div class="grid_6" id="autor" >
+<?php echo $autor;?>
   </div>
+  <div class="grid_2" id="fecha" >
+<?php echo $fecha;?>
+  </div>  
+  <div class="clear"></div>
+    <div class="grid_8" id="texto" >
+<?php echo $texto;?>
+  </div> 
+  
+    <div class="clear"></div>
+    <div class="grid_8" id="form_comentarios" >
+<?php echo "PONER ACA EL FROMULARIO PARA CARGAR COMENTARIOS";?>
+  </div> 
+      <div class="grid_8" id="comentarios">
+      	<h2>Comentarios:</h2>
+<?php echo "PONER ACA LOS COMENTARIOS";?>
+  </div> 
+   
+  
+  
 </div>
 
 <!-- Pie-->

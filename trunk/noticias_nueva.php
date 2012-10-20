@@ -28,25 +28,9 @@
 			include ("consulta_bdd.php");
 
 			//levanto el Id del dispositivo y cliente
-			$id=$_GET["id_cliente"];
+			
 			$conexion=conectarbd("localhost","root","","notiseguweb");
 	//tipo de dispositivo
-
-			$query="select id, descripcion from tipo_dispositivo";
-
-			$consulta=consulta($query, $conexion);
-			if(mysql_num_rows($consulta)==0){
-
-				print("<br>Error, no existen registros con estos datos");
-			}
-			else
-				$cantTiposDispo=mysql_num_rows($consulta);
-			for ($i=0; $i<$cantTiposDispo; $i++)
-			{
-				$fila = mysql_fetch_array($consulta);
-				$tipos_dispositivos_id[]=$fila["id"];
-				$tipos_dispositivos_desc[]=$fila["descripcion"];
-			}
 
 			?>
 
