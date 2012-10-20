@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nombre_usu` varchar(30) NOT NULL,
   `pass` varchar(30) NOT NULL,
   `rol_id` int(20) NOT NULL,
+  `fecha_hora_baja` timestamp,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_usu` (`nombre_usu`),
   KEY `rol_id` (`rol_id`)
@@ -58,8 +59,11 @@ CREATE TABLE IF NOT EXISTS `nota` (
   `fecha_hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `texto` text NOT NULL,
   `usuario_id` bigint(20) NOT NULL,
+  `usuario_creador_id` bigint(20),
+  `fecha_hora_baja` timestamp,
   PRIMARY KEY (`id`),
-  KEY `usuario_id` (`usuario_id`)
+  KEY `usuario_id` (`usuario_id`),
+  KEY `usuario_creador_id` (`usuario_creador_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
@@ -68,6 +72,8 @@ CREATE TABLE IF NOT EXISTS `nota` (
 ALTER TABLE `nota`
   ADD CONSTRAINT `nota_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`id`);
 
+ALTER TABLE `nota`
+  ADD CONSTRAINT `nota_ibfk_2` FOREIGN KEY (`usuario_creador_id`) REFERENCES `usuario` (`id`);
 
 --
 -- Estructura de tabla para la tabla `comentario`
@@ -79,6 +85,7 @@ CREATE TABLE IF NOT EXISTS `comentario` (
   `fecha_hora` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `nota_id` bigint(20) NOT NULL,
   `usuario_id` bigint(20) DEFAULT NULL,
+  `comentador` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `nota_id` (`nota_id`,`usuario_id`),
   KEY `usuario_id` (`usuario_id`)
