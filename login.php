@@ -28,12 +28,15 @@ else {$error="";}
 <div class="grid_1 prefix_4"><label for="password">Contrase&ntilde;a: </label></div><div class="grid_3"><input type="password" name = "password" id="password" /></div>
 <div class="clear"></div>
 <div class="grid_3 prefix_5"><input type="submit" name ="iniciar" value="Iniciar Sesi&oacute;n" class="boton"/>
+
+<input type="button" name ="Cancelar" value="Cancelar" class="boton" onclick="location.href='noticias.php'"/>
 	  <?php if ($error =="password") {echo "<br/>Verifique su nombre de usuario y contrase&ntilde;a.";};
 	  		 if ($error =="permisos") {echo "<br/>No posee permisos para realizar esta operaci&oacute;n.";};
 			 if ($error =="rol") {echo "<br/>No tiene un rol asignado. Contacte con el admninistrador.";};
 	  
 	   ?>
-<input type="button" name ="Cancelar" value="Cancelar" class="boton" onclick="location.href='noticias.php'"/>
+
+
       <div class="clear"></div>
    
 </form>
