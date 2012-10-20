@@ -12,6 +12,9 @@
 <!-- Encabezado-->
 <?php include("encabezado.php");?>
 
+<!-- Men�-->
+<?php include("menu.php");?>
+
 
 <!-- Principal-->
 <div class="container_12" id="principal">

@@ -16,7 +16,7 @@ if( isset($_POST["iniciar"]) )	{
 	  $rol=tomarRol($usuario);
 	  $sesion->set("rol",$rol);
 	  include ("scripts/carga_log.php");carga_log ("Ingreso del usuario.",$sesion->get("usuario"), 1);
-	  header("location: $urlRol");
+	  header("location: noticias.php");
    } else {
 	   include ("scripts/carga_log.php");carga_log ("Intento de sesion fallido. Usuario intentado: ".$usuario.".","", 1); 
      header("location: login.php?error=password");
