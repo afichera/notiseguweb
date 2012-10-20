@@ -64,6 +64,7 @@ echo "<h1>".$titulo."</h1>";
   
     <div class="clear"></div>
     <div class="grid_8" id="form_comentarios" >
+    	<h2>Realice un comentario:</h2>
 <?php echo "PONER ACA EL FROMULARIO PARA CARGAR COMENTARIOS";?>
   </div> 
       <div class="grid_8" id="comentarios">
