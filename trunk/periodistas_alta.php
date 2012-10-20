@@ -19,7 +19,7 @@
   </div>
   <div class="grid_12" >
 
-    <form name="formulario" action="periodistas_abm.php" method="post" onsubmit="return verificar_alta_cliente()">
+    <form name="formulario" action="periodistas_abm.php" method="post" onsubmit="return verificar_alta_periodista()">
       <table>
      
         <tr>
