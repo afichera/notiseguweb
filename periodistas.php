@@ -15,7 +15,7 @@
 <!-- Principal-->
 <div class="container_12" id="principal">
 <div class="grid_12" >
-<h1>Clientes</h1>
+<h1>Periodistas</h1>
 </div>
 <div class="grid_12" >
 <?php
