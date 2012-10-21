@@ -25,40 +25,55 @@
 
 			include ("conexion_bdd.php");
 
-			include ("consulta_bdd.php");
-
-			//levanto el Id del dispositivo y cliente
+			include ("consulta_bdd.php");			
 			
+			$consulta="SELECT * FROM usuario";
 			$conexion=conectarbd("localhost","root","","notiseguweb");
-	//tipo de dispositivo
-
+			$consulta0=consulta($consulta, $conexion);
+			
 			?>
 
 
 			<form name="formulario" action="noticias_nueva_submit.php" method="post">
 				<table>
                 <tr><td><input type="hidden" name="cliente_id" value="<?php echo $id; ?>" />
-                
-					<tr>
-						<td>Descripcion:</td>
-						<td><input type="text" name="descripcion"
-							value="" /></td>
+                	<tr>
+						<td>Autor:</td>
+						<?php 
+						
+						//Si es periodista el autor es el usuario que inicio sesion
+						//Si es editor pueden elegir quien es el autor de la nota.
+						
+						if($sesion->get("rol") == "PERIODISTA"){
+							echo '<td><input type="text" id="autor" name="autor" readonly="readonly" value="'.$sesion->get("usuario").'"/></td>';
+						}
+						
+						if($sesion->get("rol") == "EDITOR"){
+						echo '<td><select id="autor" name="autor" style="width: 200px;">';						
+						
+							while(isset($consulta0) && $row = mysql_fetch_array($consulta0)) {
+								echo '<option value="'.$row["nombre_usu"].'">'.$row["nombre_usu"];;
+							}
+							
+						echo '</select></td>';
+						}
+						?>
+						
 					</tr>
 					<tr>
-						<td>Tipo:</td>
-						<td><select name="tipo_dispositivo" style="width: 200px;">
-
-								<?php 
-								for ($i=0; $i<$cantTiposDispo; $i++){
-									echo '<option value="'.$tipos_dispositivos_id[$i].'"';
-									echo ('>'.$tipos_dispositivos_desc[$i]. '</option>');
-								}
-								?>
-						</select></td>
+						<td>Titulo de la noticia:</td>
+						<td><input type="text" name="titulo"
+							value="" /></td>
+					</tr>
+					
+					<tr>
+						<td>Texto:</td>
+						<td><input type="text" name="texto"
+							value="" /></td>
 					</tr>
 			
 					</table>
-				<input type="submit" name="abm" value="Alta" class="boton" /> <a
+				<input type="submit" name="abm" value="Subir Noticia" class="boton" /> <a
 					href="noticias.php" class="boton">Cancelar</a>
 			</form>
 

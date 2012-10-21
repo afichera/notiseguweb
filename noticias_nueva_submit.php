@@ -19,64 +19,48 @@
 		<?php
 		$abm=$_POST['abm'];
 
-
+		
 		include ("conexion_bdd.php");
 
 		include ("consulta_bdd.php");
-
+				
+		//Averiguo cual es el id del usuario que inicio sesion
+		$nombreUsuario=$sesion->get("usuario");	
 		$conexion=conectarbd("localhost","root","","notiseguweb");
-
-
-
-		$cliente_id=$_POST['cliente_id'];
-		$descripcion=$_POST['descripcion'];
-		$tipo_dispositivo_id=$_POST['tipo_dispositivo'];
-				$query="
-INSERT INTO dispositivo 
-(tipo_dispositivo_id, 
-estado_habilitacion_id, 
-estado, 
-cliente_id,
-descripcion
-)
-VALUES (
-$tipo_dispositivo_id,2,'ACTIVO',$cliente_id,'$descripcion');";
-
-		$consulta1=consulta($query, $conexion);
-		$id_generado=mysql_insert_id();
-		$id_externo = 5555555+$id_generado;
-		
-		$query="UPDATE dispositivo SET id_externo = ".$id_externo." WHERE id = ".$id_generado.";";
-		
+		$query="SELECT * FROM usuario WHERE nombre_usu='$nombreUsuario'";
 		$consulta2=consulta($query, $conexion);
+			
+		while(isset($consulta2) && $row = mysql_fetch_array($consulta2)) {
+			$id=$row["id"];
+			$nombreApellido=$row["nombre_apellido"];
+		}
+
+	$autorSeleccionado=$_POST['autor'];
+	$titulo=$_POST['titulo'];
+	$texto=$_POST['texto'];
+
+
+	$conexion=conectarbd("localhost","root","","notiseguweb");
+	$query="SELECT * FROM usuario WHERE nombre_usu='$autorSeleccionado'";
+	$consulta3=consulta($query, $conexion);
 		
+	while(isset($consulta3) && $row = mysql_fetch_array($consulta3)) {
+		$idSeleccionado=$row["id"];
+	}	
 		
+	$conexion=conectarbd("localhost","root","","notiseguweb");
+	$query="
+	INSERT INTO nota (id,titulo,fecha_hora,texto,usuario_id,usuario_creador_id,fecha_hora_baja)
+	VALUES ('','$titulo','NOW()','$texto','$idSeleccionado','$id','00/00/0000 00:00:00');";
 
+	$consulta1=consulta($query, $conexion);
+	$id_generado=mysql_insert_id();
 
-
-
-
-
-		if ($consulta1==1&&$consulta2==1){
-						echo "La operacion se realiz&oacute; con &eacute;xito <br/>
-					<a href='dispositivos.php' class='boton'>Aceptar</a>";
-						
-					}else{
-						echo "No se pudo realizar la operaci&oacute;n. <br/>
-					<input type='button' value='Volver' onclick='goBack()' class='boton' />";
-						
-						
-					}
-
-	
-
-
-
-
-		?>
-		</div>
+	if ($consulta1==1){			
+		echo "La operacion se realiz&oacute; con &eacute;xito";						
+	}
+	?>
 	</div>
-
 
 	<!-- Pie-->
 	<?php include("pie.php");?>
