@@ -3,7 +3,7 @@
 <head>
 <?php include("head.php");?>
 <link href="table.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="../js/jquery.blockUI.js"></script>
+
 
 </head>
 
