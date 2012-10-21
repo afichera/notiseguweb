@@ -2,10 +2,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 -- Data de Usuario
-INSERT INTO `usuario` (`id`, `nombre_apellido`, `nombre_usu`, `pass`, `rol_id`) VALUES(2, 'Carlos Monti', 'cmonti', 'cmonti201210', 2);
-INSERT INTO `usuario` (`id`, `nombre_apellido`, `nombre_usu`, `pass`, `rol_id`) VALUES(3, 'Anibal Pachano', 'apachano', 'apachano201210', 2);
-INSERT INTO `usuario` (`id`, `nombre_apellido`, `nombre_usu`, `pass`, `rol_id`) VALUES(4, 'Luis Ventura', 'lventura', 'intrusos201210', 1);
-INSERT INTO `usuario` (`id`, `nombre_apellido`, `nombre_usu`, `pass`, `rol_id`) VALUES(5, 'Jorge Lanata', 'jlanata', 'ppt201210', 1);
+INSERT INTO `usuario` (`id`, `nombre_apellido`, `nombre_usu`, `pass`, `rol_id`) VALUES(3, 'Carlos Monti', 'cmonti', 'cmonti201210', 1);
+INSERT INTO `usuario` (`id`, `nombre_apellido`, `nombre_usu`, `pass`, `rol_id`) VALUES(4, 'Anibal Pachano', 'apachano', 'apachano201210', 1);
+INSERT INTO `usuario` (`id`, `nombre_apellido`, `nombre_usu`, `pass`, `rol_id`) VALUES(5, 'Luis Ventura', 'lventura', 'intrusos201210', 2);
+INSERT INTO `usuario` (`id`, `nombre_apellido`, `nombre_usu`, `pass`, `rol_id`) VALUES(6, 'Jorge Lanata', 'jlanata', 'ppt201210', 2);
 
 
 -- Data de Nota
