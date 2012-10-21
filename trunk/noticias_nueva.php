@@ -68,8 +68,7 @@
 					
 					<tr>
 						<td>Texto:</td>
-						<td><input type="text" name="texto"
-							value="" /></td>
+						<td><textarea  cols="40" rows="10" name="texto"></textarea></td>
 					</tr>
 			
 					</table>
