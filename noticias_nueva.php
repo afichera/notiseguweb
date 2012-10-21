@@ -49,10 +49,14 @@
 						}
 						
 						if($sesion->get("rol") == "EDITOR"){
-						echo '<td><select id="autor" name="autor" style="width: 200px;">';						
-						
+						echo '<td><select id="autor" name="autor" style="width: 200px;">';				
+						$usuarioRegistrado = $sesion->get("usuario");						
+						echo '<option selected="'.$usuarioRegistrado.'" value="'.$usuarioRegistrado.'">'.$usuarioRegistrado;'>';
+							
 							while(isset($consulta0) && $row = mysql_fetch_array($consulta0)) {
-								echo '<option value="'.$row["nombre_usu"].'">'.$row["nombre_usu"];;
+								if($usuarioRegistrado!=$row["nombre_usu"]){									
+									echo '<option value="'.$row["nombre_usu"].'">'.$row["nombre_usu"];'';
+								}
 							}
 							
 						echo '</select></td>';
