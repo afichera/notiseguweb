@@ -106,7 +106,17 @@ echo "<h1>".$titulo."</h1>";
   </div> 
       <div class="grid_8" id="comentarios">
       	<h2>Comentarios:</h2>
-<?php echo "PONER ACA LOS COMENTARIOS";?>
+<?php 
+		$conexion=conectarbd("localhost","root","","notiseguweb");
+		$query="SELECT * FROM comentario WHERE nota_id = '$id'";
+		$consulta3=consulta($query, $conexion);
+		
+		while($articulo=mysql_fetch_array($consulta3)) {
+			echo '<div class="grid_8"><h2>'.$articulo["comentador"].'</h2>';
+			echo '<p>'.$articulo["texto"].'</p></div>';
+		
+		} 
+?>
   </div> 
    
   
