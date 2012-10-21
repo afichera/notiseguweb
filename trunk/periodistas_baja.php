@@ -21,7 +21,7 @@ $id=$_GET['id'];
 $confirma=$_GET['confirma'];
 
 if ($confirma==0)
-{echo '<p>&iquest;Est&aacute; seguro que desea dar de baja el cliente?</p>
+{echo '<p>&iquest;Est&aacute; seguro que desea dar de baja el periodista?</p>
 <form name="confirma" action="periodistas_baja.php?id='.$id.'&confirma=1" method="post">
 <input type="submit" name="abm" value="Aceptar" class="boton"/>
 <a href="periodistas.php" class="boton">Cancelar</a>
