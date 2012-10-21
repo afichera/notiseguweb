@@ -41,7 +41,7 @@ else
 	for ($i=0; $i<mysql_num_rows($consulta); $i++)
 {
 $fila = mysql_fetch_array($consulta);
-$id=$fila["id"];
+$idNota=$fila["id"];
 $titulo=$fila["titulo"];
 $fecha=$fila["fecha_hora"];
 $texto=$fila["texto"];
@@ -108,7 +108,7 @@ echo "<h1>".$titulo."</h1>";
       	<h2>Comentarios:</h2>
 <?php 
 		$conexion=conectarbd("localhost","root","","notiseguweb");
-		$query="SELECT * FROM comentario WHERE nota_id = '$id'";
+		$query="SELECT * FROM comentario WHERE nota_id = '$id' ORDER BY fecha_hora ASC";
 		$consulta3=consulta($query, $conexion);
 		
 		while($articulo=mysql_fetch_array($consulta3)) {
