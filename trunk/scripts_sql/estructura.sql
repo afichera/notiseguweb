@@ -118,7 +118,8 @@ CREATE OR REPLACE VIEW usuario_rol AS
 SELECT usuario.id as id, nombre_apellido as Nombre, nombre_usu as "Nombre de Usuario", descripcion as Rol
 FROM usuario
 INNER JOIN rol ON usuario.rol_id = rol.id
-WHERE usuario.fecha_hora_baja = '0000-00-00 00:00:00';
+WHERE usuario.fecha_hora_baja = '0000-00-00 00:00:00'
+AND rol.id = 1;
   
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
