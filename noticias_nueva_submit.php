@@ -50,8 +50,8 @@
 		
 	$conexion=conectarbd("localhost","root","","notiseguweb");
 	$query="
-	INSERT INTO nota (id,titulo,fecha_hora,texto,usuario_id,usuario_creador_id,fecha_hora_baja)
-	VALUES ('','$titulo','NOW()','$texto','$idSeleccionado','$id','00/00/0000 00:00:00');";
+	INSERT INTO nota (titulo,texto,usuario_id,usuario_creador_id,fecha_hora_baja)
+	VALUES ('$titulo','$texto','$idSeleccionado','$id','00/00/0000 00:00:00');";
 
 	$consulta1=consulta($query, $conexion);
 	$id_generado=mysql_insert_id();
