@@ -31,21 +31,21 @@
         <tr>
           <td> Nombre de Usuario: </td>
           <td><input type="text" id="usuario" name="usuario" value="" />   
-			  <label class="alerta" id="usuario_msg">
+			  <label class="alerta" id="usuario_msg"></label>
           </td>
         </tr>
         
         <tr>
         	<td>Password:</td>
         	<td><input type="password" id="password" name="password" value="" />  
-        		<label class="alerta" id="password_msg">
+        		<label class="alerta" id="password_msg"></label>
         	</td>
         </tr>
 
 		<tr>
 			<td>Repita Password:</td>
-			<td><input type="password" id="password" name="password2" value="" />  
-				<label class="alerta" id="password2_msg">
+			<td><input type="password" id="password2" name="password2" value="" />  
+				<label class="alerta" id="password2_msg"></label>
 			</td>
         </tr>        
       </table>
