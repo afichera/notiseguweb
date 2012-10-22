@@ -2,6 +2,7 @@
 <?php include("doctype.php");?>
 <head>
 <?php include("head.php");?>
+<script type="text/javascript" src="js/validaciones.js"></script>
 <link href="table.css" rel="stylesheet" type="text/css">
 
 
@@ -33,54 +34,54 @@
 			
 			?>
 
-
-			<form name="formulario" action="noticias_nueva_submit.php" method="post">
+			<form name="formulario" action="noticias_nueva_submit.php" method="post"onsubmit="return verificar_nuevas_noticias()">
 				<table>
-                <tr><td><input type="hidden" name="cliente_id" value="<?php echo $id; ?>" />
-                	<tr>
+					<tr>
+						<td>
+							<input type="hidden" name="cliente_id" value="<?php echo $id; ?>" />
+						</td>
+					</tr>
+			        <tr>
 						<td>Autor:</td>
 						<?php 
-						
+									
 						//Si es periodista el autor es el usuario que inicio sesion
 						//Si es editor pueden elegir quien es el autor de la nota.
-						
+							
 						if($sesion->get("rol") == "PERIODISTA"){
 							echo '<td><input type="text" id="autor" name="autor" readonly="readonly" value="'.$sesion->get("usuario").'"/></td>';
 						}
-						
-						if($sesion->get("rol") == "EDITOR"){
-						echo '<td><select id="autor" name="autor" style="width: 200px;">';				
-						$usuarioRegistrado = $sesion->get("usuario");						
-						echo '<option selected="'.$usuarioRegistrado.'" value="'.$usuarioRegistrado.'">'.$usuarioRegistrado;'>';
 							
+						if($sesion->get("rol") == "EDITOR"){
+							echo '<td><select id="autor" name="autor" style="width: 200px;">';				
+							$usuarioRegistrado = $sesion->get("usuario");						
+							echo '<option selected="'.$usuarioRegistrado.'" value="'.$usuarioRegistrado.'">'.$usuarioRegistrado;'>';
+									
 							while(isset($consulta0) && $row = mysql_fetch_array($consulta0)) {
 								if($usuarioRegistrado!=$row["nombre_usu"]){									
 									echo '<option value="'.$row["nombre_usu"].'">'.$row["nombre_usu"];'';
 								}
 							}
-							
+									
 						echo '</select></td>';
 						}
 						?>
+									
+						</tr>
 						
-					</tr>
-					<tr>
-						<td>Titulo de la noticia:</td>
-						<td><input type="text" name="titulo"
-							value="" /></td>
-					</tr>
-					
-					<tr>
-						<td>Texto:</td>
-						<td><textarea  cols="40" rows="10" name="texto"></textarea></td>
-					</tr>
-			
-					</table>
-				<input type="submit" name="abm" value="Subir Noticia" class="boton" /> <a
-					href="noticias.php" class="boton">Cancelar</a>
+						<tr>
+							<td>Titulo de la noticia:</td>
+							<td><input type="text" name="titulo" id="titulo" value="" /></td>
+						</tr>
+				
+						<tr>
+							<td>Texto:</td>
+							<td><textarea  id="texto" cols="40" rows="10" name="texto"></textarea></td>
+						</tr>
+						
+				</table>
+				<input type="submit" name="abm" value="Subir Noticia" class="boton" /> <a href="noticias.php" class="boton">Cancelar</a>
 			</form>
-
-
 		</div>
 	</div>
 
