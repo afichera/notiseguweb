@@ -98,3 +98,14 @@ else document.getElementById("comentador_msg").innerHTML="";
 
 	return resultado;
 }
+
+function validar_inputs_login(){
+	var resultado = true;
+	if (document.formulario.usuario.value.length >= 20) {		
+		resultado = false;
+	}
+	if (document.formulario.password.value.length >= 20) {		
+		resultado = false;
+	}
+	return resultado;
+}
