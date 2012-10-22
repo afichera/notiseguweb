@@ -97,14 +97,16 @@
 		<div class="grid_8" id="form_comentarios">
 			<h2>Realice un comentario:</h2>
 			<form name="formulario" action="comentario_nuevo_submit.php"
-				method="post">
+				method="post" onsubmit="return verificar_alta_comentario()">
 				Autor: <input type="text" id="comentador" name="comentador"
 					value="<?php echo $comentador;?>" />
 				<br>
 				Comentario:
 				<br>
 				<textarea type="text" id="comentario" name="comentario"></textarea>
-				<input type="submit" id="comentar" name="comentar" value="Comentar" />
+				<label class="alerta" id="comentario_msg"></label>
+				<br>
+				<input type="submit" id="comentar" name="comentar" value="Comentar"/>
 				<!--     		La Nota Id -->
 				<input type="hidden" id="notaId" name="notaId"
 					value="<?php echo $id;?>" /> <input type="hidden"
