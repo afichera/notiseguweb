@@ -24,9 +24,9 @@ else {$error="";}
 </div>
 <br/>
 <form id="frmLogin" name="frmLogin" method="post" action="validar.php">
-<div class="grid_1 prefix_4"><label for="usuario">Usuario: </label></div><div class="grid_3"><input type="text" name = "usuario" id="usuario" /></div>
+<div class="grid_1 prefix_4"><label for="usuario">Usuario: </label></div><div class="grid_3"><input type="text" name = "usuario" id="usuario" maxlength="20"/></div>
 <div class="clear"></div>
-<div class="grid_1 prefix_4"><label for="password">Contrase&ntilde;a: </label></div><div class="grid_3"><input type="password" name = "password" id="password" /></div>
+<div class="grid_1 prefix_4"><label for="password">Contrase&ntilde;a: </label></div><div class="grid_3"><input type="password" name = "password" id="password" maxlength="20"/></div>
 <div class="clear"></div>
 <div class="grid_3 prefix_5"><input type="submit" name ="iniciar" value="Iniciar Sesi&oacute;n" class="boton"/>
 
