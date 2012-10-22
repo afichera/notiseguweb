@@ -66,7 +66,7 @@ function verificar_nuevas_noticias(){
                     if (document.formulario.titulo.value.length>=150) {
                     document.getElementById("titulo_msg").innerHTML="-> El titulo debe tener menos de 150 caracteres";
                     resultado=false;
-                    } else 
+                    }  
                    
                     if (document.formulario.texto.value=="") {
                     document.getElementById("texto_msg").innerHTML="-> Por favor ingrese el cuerpo de la Noticia";
@@ -74,4 +74,16 @@ function verificar_nuevas_noticias(){
                     } 
                    
                     return resultado;   
+}
+
+function verificar_alta_comentario() {
+
+	var resultado = true;
+
+	if (document.formulario.comentario.value == "") {
+		document.getElementById("comentario_msg").innerHTML = "-> Debe completar el comentario";
+		resultado = false;
+	}
+
+	return resultado;
 }
