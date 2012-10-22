@@ -6,6 +6,7 @@ else {$error="";}
 <?php include("doctype.php");?>
 <head>
 <?php include("head.php");?>
+<script src="js/validaciones.js" type="text/javascript"></script>
 </head>
 
 
@@ -23,7 +24,7 @@ else {$error="";}
 <h1>Ingreso al Sistema</h1>
 </div>
 <br/>
-<form id="frmLogin" name="frmLogin" method="post" action="validar.php">
+<form id="frmLogin" name="frmLogin" method="post" action="validar.php" onsubmit="return validar_inputs_login()">
 <div class="grid_1 prefix_4"><label for="usuario">Usuario: </label></div><div class="grid_3"><input type="text" name = "usuario" id="usuario" maxlength="20"/></div>
 <div class="clear"></div>
 <div class="grid_1 prefix_4"><label for="password">Contrase&ntilde;a: </label></div><div class="grid_3"><input type="password" name = "password" id="password" maxlength="20"/></div>
