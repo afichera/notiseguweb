@@ -67,11 +67,14 @@ function verificar_nuevas_noticias(){
                     document.getElementById("titulo_msg").innerHTML="-> El titulo debe tener menos de 150 caracteres";
                     resultado=false;
                     }  
+                    else document.getElementById("titulo_msg").innerHTML="";
                    
                     if (document.formulario.texto.value=="") {
                     document.getElementById("texto_msg").innerHTML="-> Por favor ingrese el cuerpo de la Noticia";
                     resultado=false;
                     } 
+                    else document.getElementById("texto_msg").innerHTML="";
+                   
                    
                     return resultado;   
 }
