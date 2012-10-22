@@ -78,10 +78,23 @@ function verificar_alta_comentario() {
 
 	var resultado = true;
 
+if (document.formulario.comentador.value == "") {
+		document.getElementById("comentador_msg").innerHTML = "-> Debe colocar algo en el autor";
+		resultado = false;
+} else
+
+if (document.formulario.comentador.value.length>=100) {
+		document.getElementById("comentador_msg").innerHTML = "-> El autor no puede ser tan largo";
+		resultado = false;
+	}
+else document.getElementById("comentador_msg").innerHTML="";
+
+
+
 	if (document.formulario.comentario.value == "") {
 		document.getElementById("comentario_msg").innerHTML = "-> Debe completar el comentario";
 		resultado = false;
-	}
+	} else document.getElementById("comentario_msg").innerHTML="";
 
 	return resultado;
 }

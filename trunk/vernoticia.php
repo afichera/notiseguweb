@@ -53,7 +53,7 @@
 		$conexion=conectarbd("localhost","root","","notiseguweb");
 		$query="SELECT * FROM usuario WHERE nombre_usu='$nombreUsuario'";
 		$consulta2=consulta($query, $conexion);
-		$comentador = "Anónimo";
+		$comentador = "An&oacute;nimo";
 		$idSesion = -1;
 		while(isset($consulta2) && $row = mysql_fetch_array($consulta2)) {
 			$idSesion=$row["id"];
@@ -100,6 +100,7 @@
 				method="post" onsubmit="return verificar_alta_comentario()">
 				Autor: <input type="text" id="comentador" name="comentador"
 					value="<?php echo $comentador;?>" />
+					<label class="alerta" id="comentador_msg"></label>
 				<br>
 				Comentario:
 				<br>
