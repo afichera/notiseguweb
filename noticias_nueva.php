@@ -71,14 +71,16 @@
 						
 						<tr>
 							<td>Titulo de la noticia:</td>
-							<td><input type="text" name="titulo" id="titulo" value="" /></td>
+							<td><input type="text" name="titulo" id="titulo" value="" /><label class="alerta" id="titulo_msg">
+</label></td>
 						</tr>
 				
 						<tr>
 							<td>Texto:</td>
 							<td><textarea  id="texto" cols="40" rows="10" name="texto"></textarea></td>
 						</tr>
-						
+						<tr><td><label class="alerta" id="texto_msg">
+</label></td></tr>
 				</table>
 				<input type="submit" name="abm" value="Subir Noticia" class="boton" /> <a href="noticias.php" class="boton">Cancelar</a>
 			</form>

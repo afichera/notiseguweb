@@ -57,30 +57,21 @@ function verificar_nuevas_noticias(){
 
                     var resultado=true;
 
-                    if (document.formulario.autor.value=="") {
-                    document.getElementById("autor").innerHTML="-> Por favor ingrese el Autor de la Noticia";
-                    resultado=false;
-                    } else
-
-                    if (document.formulario.autor.value.length>=250) {
-                    document.getElementById("autor").innerHTML="-> El Autor debe tener menos de 250 caracteres";
-                    resultado=false;
-                    } else document.getElementById("autor").innerHTML="";
-
+                    
                     if (document.formulario.titulo.value=="") {
-                    document.getElementById("titulo").innerHTML="-> Por favor ingrese el Titulo de la Noticia";
+                    document.getElementById("titulo_msg").innerHTML="-> Por favor ingrese el Titulo de la Noticia";
                     resultado=false;
                     } else
 
-                    if (document.formulario.titulo.value.length>=250) {
-                    document.getElementById("titulo").innerHTML="-> El nombre debe tener menos de 250 caracteres";
+                    if (document.formulario.titulo.value.length>=150) {
+                    document.getElementById("titulo_msg").innerHTML="-> El titulo debe tener menos de 150 caracteres";
                     resultado=false;
-                    } else document.getElementById("titulo").innerHTML="";
+                    } else 
                    
                     if (document.formulario.texto.value=="") {
-                    document.getElementById("texto").innerHTML="-> Por favor ingrese el cuerpo de la Noticia";
+                    document.getElementById("texto_msg").innerHTML="-> Por favor ingrese el cuerpo de la Noticia";
                     resultado=false;
-                    } else document.getElementById("texto").innerHTML="";
+                    } 
                    
                     return resultado;   
 }
