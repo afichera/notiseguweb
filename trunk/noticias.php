@@ -3,7 +3,7 @@
 <head>
 <?php include("head.php");?>
 <link href="table.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="../notiseguweb/js/validaciones.js"></script>
+<script type="text/javascript" src="js/validaciones.js"></script>
 </head>
 
 <body>
