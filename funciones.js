@@ -1,8 +1,36 @@
 function validar()
 {
-	// alert(document.form_alta_nota.titulo_noticia.value);
-	// alert(document.form_alta_nota.contenido_noticia.value);
-	// alert(document.form_alta_nota.autor_noticia.value);
+	if (document.login_usu.username.value.length==0||document.login_usu.username.value==" ")
+	{
+		alert("Tiene que ingresar datos");
+		//document.login_usu.username.focus();
+		//pintar(document.login_usu.username);
+		return 0;
+	}
+	
+	if (document.login_usu.username.value!="/^[a-zA-Z0-9_]{3,16}$/")
+	{
+		alert("Solo ingrese caracteres alfanumericos");
+		//document.login_usu.username.focus();
+		//pintar(document.login_usu.username);
+		return 0;
+	}
+	
+	if (document.login_usu.password.value.length==0||document.login_usu.password.value==" ")
+	{
+		alert("Tiene que ingresar datos");
+		//document.formulario.nombre.focus();
+		//pintar(document.formulario.nombre);
+		return 0;
+	}
+	
+	if (document.login_usu.password.value!="/^[a-zA-Z0-9_]{3,16}$/")
+	{
+		alert("Solo ingrese caracteres alfanumericos");
+		//document.login_usu.username.focus();
+		//pintar(document.login_usu.username);
+		return 0;
+	}	
 	
 	if (document.form_alta_usu.nombre.value.length==0||document.form_alta_usu.nombre.value==" ")
 	{
@@ -22,7 +50,7 @@ function validar()
 	
 	if (isNaN(document.form_alta_usu.dni.value))
 		{
-			alert("Ingrese solo números en su número de D.N.I.");
+			alert("Ingrese solo nï¿½meros en su nï¿½mero de D.N.I.");
 			//document.formulario.telefono.focus();
 			//pintar(document.formulario.telefono);
 			return 0;
@@ -30,7 +58,7 @@ function validar()
 	
 	if ((document.form_alta_usu.estado.value!=1)&&(document.form_alta_usu.estado.value!=0))
 	{
-		alert("El tipo de Estado no es válida")
+		alert("El tipo de Estado no es vï¿½lida")
 		// document.formulario.clave.focus();
 		// pintar(document.formulario.clave);
 		// pintar(document.formulario.clave2);
@@ -39,7 +67,7 @@ function validar()
 	
 	if ((document.form_alta_usu.tipo_usuario.value!=1)&&(document.form_alta_usu.tipo_usuario.value!=2))
 	{
-		alert("El tipo de Usuario no es válido")
+		alert("El tipo de Usuario no es vï¿½lido")
 		// document.formulario.clave.focus();
 		// pintar(document.formulario.clave);
 		// pintar(document.formulario.clave2);
@@ -48,7 +76,7 @@ function validar()
 	
 	// if (document.form_alta_usu.clave.value.length<6)
 	// {
-		// alert("Tiene que escribir una contraseña de al menos 6 dígitos")
+		// alert("Tiene que escribir una contraseï¿½a de al menos 6 dï¿½gitos")
 		//document.formulario.clave.focus();
 		//pintar(document.formulario.clave);
 		//pintar(document.formulario.clave2);
@@ -58,7 +86,7 @@ function validar()
 
 	if (document.form_alta_usu.clave1.value!=document.form_alta_usu.clave2.value)
 	{
-		alert("La verificacion de contraseña es incorrecta");
+		alert("La verificacion de contraseï¿½a es incorrecta");
 		//document.formulario.clave.focus();
 		//pintar(document.formulario.clave);
 		//pintar(document.formulario.clave2);
