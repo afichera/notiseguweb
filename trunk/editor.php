@@ -5,7 +5,13 @@
 	$query='SELECT username FROM users ORDER BY username ASC';
 	$result=mysql_query($query);
 
-	mysql_close($conexion);
+	//mysql_close($conexion);
+	
+	if($_SESSION['rango'] == 1)
+	
+	{
+	
+	
 ?>
 <html>
 	<head>
@@ -184,4 +190,14 @@
 			</div>
 		</div>
 	</body>
-</html>
+</html> 
+ 
+ 
+  <?PHP 
+	
+	}else
+		{
+			echo 'No tiene los permisos necesarios para ver esta pagina';
+			die();
+		}
+?>
