@@ -7,7 +7,9 @@
 
 	//mysql_close($conexion);
 	
-	if($_SESSION['rango'] == 1)
+
+	
+if(isset ($_SESSION['rango']) && $_SESSION['rango'] == '1')
 	
 	{
 	
