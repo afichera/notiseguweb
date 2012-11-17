@@ -1,5 +1,5 @@
 <?PHP
-
+	session_start();
 	include('conexion.php');
 
 	$query='SELECT username FROM users ORDER BY username ASC';
