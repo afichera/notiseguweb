@@ -25,7 +25,7 @@
 		
 	}else
 		{
-			echo 'No tiene los permisos necesarios para realizar esta acción';
+			echo 'No tiene los permisos necesarios para realizar esta accion';
 			die();
 		}
 

@@ -2,13 +2,11 @@
 	
 	session_start();
 	
-	if($_SESSION['rango'] == 2)
+	include('conexion.php');
+	
+	if(isset ($_SESSION['rango']) && $_SESSION['rango'] == '2')
 	{
-		//include('conexion.php');
-
-		// $query='SELECT username FROM users ORDER BY username ASC';
-		// $result=mysql_query($query);
-
+		
 ?>
 <html>
 	<head>
@@ -183,7 +181,7 @@
 <?PHP
 	}else
 		{
-			echo 'No tiene los permisos necesarios para ver esta página';
+			echo 'No tiene los permisos necesarios para ver esta pagina';
 			die();
 		}
 ?>
