@@ -12,13 +12,11 @@
    if (preg_match("/^[A-Za-z0-9]{2,}$/", trim($username))) { 
       // Validar la pass 
       if (preg_match("/^[A-Za-z0-9]{2,}$/", trim($pass))) { 
-         // Todo OK 
-         echo "Datos correctos!!!"; 
-         
-      	//Modificacion para encriptar el usuario, algo básico y reversible.
+                  
+      	//Modificacion para encriptar el usuario, algo bï¿½sico y reversible.
 		$usuario_encriptado1 = md5($username);
          	
-		//Modificación de Seguridad para encriptar el password y compraralo contra el encriptado en la base de datos.
+		//Modificaciï¿½n de Seguridad para encriptar el password y compraralo contra el encriptado en la base de datos.
 		$pass_encriptada1 = md5 ($pass); //Encriptacion nivel 1
 		$pass_encriptada2 = crc32($pass_encriptada1); //Encriptacion nivel 1
 		$pass_encriptada3 = crypt($pass_encriptada2, "E5t0EsUnaCl4veSegur4"); //Encriptacion nivel 2
