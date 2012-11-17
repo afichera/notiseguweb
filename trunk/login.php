@@ -1,6 +1,5 @@
 <?PHP
 	session_start();
-
 ?>
 <html>
 	<head>

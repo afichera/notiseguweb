@@ -10,7 +10,7 @@ function validar()
 	
 	if (document.login_usu.username.value!="/^[a-zA-Z0-9_]{2,16}$/")
 	{
-		alert("Solo ingrese caracteres alfanumericos");
+		//alert("Solo ingrese caracteres alfanumericos");
 		//document.login_usu.username.focus();
 		//pintar(document.login_usu.username);
 		return 0;
@@ -26,7 +26,7 @@ function validar()
 	
 	if (document.login_usu.password.value!="/^[a-zA-Z0-9_]{2,16}$/")
 	{
-		alert("Solo ingrese caracteres alfanumericos");
+		//alert("Solo ingrese caracteres alfanumericos");
 		//document.login_usu.username.focus();
 		//pintar(document.login_usu.username);
 		return 0;
