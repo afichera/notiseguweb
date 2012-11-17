@@ -8,7 +8,7 @@ function validar()
 		return 0;
 	}
 	
-	if (document.login_usu.username.value!="/^[a-zA-Z0-9_]{3,16}$/")
+	if (document.login_usu.username.value!="/^[a-zA-Z0-9_]{2,16}$/")
 	{
 		alert("Solo ingrese caracteres alfanumericos");
 		//document.login_usu.username.focus();
@@ -24,7 +24,7 @@ function validar()
 		return 0;
 	}
 	
-	if (document.login_usu.password.value!="/^[a-zA-Z0-9_]{3,16}$/")
+	if (document.login_usu.password.value!="/^[a-zA-Z0-9_]{2,16}$/")
 	{
 		alert("Solo ingrese caracteres alfanumericos");
 		//document.login_usu.username.focus();
@@ -93,6 +93,7 @@ function validar()
 		return 0;
 	}		
 	
+	return 1;
 	document.formulario.submit();
 
 }
