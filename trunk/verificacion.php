@@ -6,18 +6,27 @@
 		
 	$username = $_POST['username'];
 	$pass = $_POST['password'];
-	
     $error = false; // no hay errores 
     
    // Validar el usuario ( solo valores alfanumericos ) 
-   if (preg_match("/^[A-Za-z0-9]{3,}$/", trim($username))) { 
+   if (preg_match("/^[A-Za-z0-9]{2,}$/", trim($username))) { 
       // Validar la pass 
-      if (preg_match("/^[A-Za-z0-9]{3,}$/", trim($pass))) { 
+      if (preg_match("/^[A-Za-z0-9]{2,}$/", trim($pass))) { 
          // Todo OK 
          echo "Datos correctos!!!"; 
-		 
+         
+      	//Modificacion para encriptar el usuario, algo básico y reversible.
+		$usuario_encriptado1 = md5($username);
+         	
+		//Modificación de Seguridad para encriptar el password y compraralo contra el encriptado en la base de datos.
+		$pass_encriptada1 = md5 ($pass); //Encriptacion nivel 1
+		$pass_encriptada2 = crc32($pass_encriptada1); //Encriptacion nivel 1
+		$pass_encriptada3 = crypt($pass_encriptada2, "E5t0EsUnaCl4veSegur4"); //Encriptacion nivel 2
+		$pass_encriptada4 = sha1("E5t0EsUnaCl4veSegur4".$pass_encriptada3); //Encriptacion nivel 3
+		
+		
 		 //CONSULTO LA BASE DE DATOS PARA COMPROBAR QUE EL USUARIO INGRESADO EXISTA.
-		$query='SELECT * FROM users WHERE username="'.$username.'" AND password="'.$pass.'" AND isDeleted="0"';
+		$query='SELECT * FROM users WHERE username="'.$usuario_encriptado1.'" AND password="'.$pass_encriptada4.'" AND isDeleted="0"';
 		$resultado = mysql_query($query);
 		$resultado2 = mysql_num_rows($resultado);
 	
