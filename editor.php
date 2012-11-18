@@ -104,7 +104,9 @@ if(isset ($_SESSION['rango']) && $_SESSION['rango'] == '1')
 										
 										while($fila=mysql_fetch_row($result))
 										{
-											echo "<option value='".$fila['0']."'>".$fila['0']."</option>";
+											$usuarioEncriptado = $fila['0'];
+											$usuarioDesencriptado = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5("E5t0EsUnaCl4veSegur4"), base64_decode($usuarioEncriptado), MCRYPT_MODE_CBC, md5(md5("E5t0EsUnaCl4veSegur4"))), "\0");
+											echo "<option value='".$usuarioDesencriptado."'>".$usuarioDesencriptado."</option>";
 										}
 
 									?>
