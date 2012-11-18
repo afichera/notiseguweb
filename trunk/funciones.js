@@ -1,35 +1,34 @@
 function validar()
 {
+	
+	var filter1 =/^[a-zA-Z0-9]*$/
+	
 	if (document.login_usu.username.value.length==0||document.login_usu.username.value==" ")
 	{
 		alert("Tiene que ingresar datos");
-		//document.login_usu.username.focus();
-		//pintar(document.login_usu.username);
-		return 0;
+
+		return false;
 	}
 	
-	if (document.login_usu.username.value!="/^[a-zA-Z0-9_]{2,16}$/")
+	if (!filter1.test(document.login_usu.username.value))
 	{
-		//alert("Solo ingrese caracteres alfanumericos");
-		//document.login_usu.username.focus();
-		//pintar(document.login_usu.username);
-		return 0;
+		alert("Solo ingrese caracteres alfanumericos");
+
+		return false;
 	}
 	
 	if (document.login_usu.password.value.length==0||document.login_usu.password.value==" ")
 	{
 		alert("Tiene que ingresar datos");
-		//document.formulario.nombre.focus();
-		//pintar(document.formulario.nombre);
-		return 0;
+
+		return false;
 	}
 	
-	if (document.login_usu.password.value!="/^[a-zA-Z0-9_]{2,16}$/")
+	if (!filter1.test(document.login_usu.password.value))
 	{
-		//alert("Solo ingrese caracteres alfanumericos");
-		//document.login_usu.username.focus();
-		//pintar(document.login_usu.username);
-		return 0;
+		alert("Solo ingrese caracteres alfanumericos");
+
+		return false;
 	}	
 	
 	if (document.form_alta_usu.nombre.value.length==0||document.form_alta_usu.nombre.value==" ")
