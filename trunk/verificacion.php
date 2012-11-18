@@ -13,9 +13,10 @@
       // Validar la pass 
       if (preg_match("/^[A-Za-z0-9]{2,}$/", trim($pass))) { 
                   
-      	//Modificacion para encriptar el usuario, algo b�sico y reversible.
-		$usuario_encriptado1 = md5($username);
-         	
+      	//Modificacion para encriptar el usuario, algo reversible.
+      	$usuario_encriptado1  =  base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5("E5t0EsUnaCl4veSegur4"), $username, MCRYPT_MODE_CBC, md5(md5("E5t0EsUnaCl4veSegur4"))));
+		
+		 	
 		//Modificaci�n de Seguridad para encriptar el password y compraralo contra el encriptado en la base de datos.
 		$pass_encriptada1 = md5 ($pass); //Encriptacion nivel 1
 		$pass_encriptada2 = crc32($pass_encriptada1); //Encriptacion nivel 1

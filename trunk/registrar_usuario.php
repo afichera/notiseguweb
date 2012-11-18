@@ -12,8 +12,8 @@ $pass = $_POST['clave1'];
 $tipo_us = $_POST['tipo_usuario'];
 $estado = $_POST['estado'];
 
-//Modificacion para encriptar el usuario, algo básico y reversible.
-$usuario_encriptado1 = md5($username);
+//Modificacion para encriptar el usuario, algo reversible.
+$usuario_encriptado1  =  base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5("E5t0EsUnaCl4veSegur4"), $username, MCRYPT_MODE_CBC, md5(md5("E5t0EsUnaCl4veSegur4"))));
 
 //Modificación para encriptar la contraseña. Varios Niveles
 //Comenzamos con la encriptacion.
