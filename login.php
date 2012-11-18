@@ -64,7 +64,7 @@
 					</ul>	
 				</div>
 			<div class="featured">
-				<form method="post" id="login_usu" name="login_usu" action="verificacion.php">
+				<form method="post" id="login_usu" name="login_usu" action="verificacion.php" onsubmit="return validar();">
 					
 					<table>
 						<tr>
@@ -83,7 +83,7 @@
 
 						<tr>
 							<td>
-								<input type="submit" id="ingresar" name="ingresar" value="Ingresar" onClick="validar();"/>
+								<input type="submit" id="ingresar" name="ingresar" value="Ingresar" />
 								<input type="reset" id="cancelar" name="cancelar" value="Cancelar"/>
 							</td>
 							<!--
